@@ -27,6 +27,42 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+      .when('/addUser', {
+        templateUrl: 'views/Users/addUser.html',
+        controller: 'UsersCtrl'
+      })
+      .when('/preEditUser', {
+        templateUrl: 'views/Users/preEditUser.html',
+        controller: 'UsersCtrl'
+      })
+      .when('/editUser/:userId', {
+        templateUrl: 'views/Users/editUser.html',
+        controller: 'UsersCtrl'
+      })
+      .when('/delUser', {
+        templateUrl: 'views/Users/delUser.html',
+        controller: 'UsersCtrl'
+      })
+      .when('/projects' , {
+      templateUrl: 'views/Projects/list.html',
+      controller: 'ProjectsCtrl'
+      })
+      .when('/addProject' , {
+        templateUrl: 'views/Projects/addProject.html',
+        controller: 'ProjectsCtrl'
+      })
+      .when('/delProject' , {
+        templateUrl: 'views/Projects/delProject.html',
+        controller: 'ProjectsCtrl'
+      })
+      .when('/preEditProject', {
+        templateUrl: 'views/Projects/preEditProject.html',
+        controller: 'ProjectsCtrl'
+      })
+      .when('/editProject/:projectId', {
+        templateUrl: 'views/Projects/editProject.html',
+        controller: 'ProjectsCtrl'
+      })
       .when('/users' , {
         templateUrl: 'views/Users/list.html',
         controller: 'UsersCtrl'
@@ -34,6 +70,10 @@ angular
       .when('/users/:userId', {
         templateUrl: 'views/Users/show.html',
         controller: 'UsersCtrl'
+      })
+      .when('/projects/:projectId', {
+        templateUrl: 'views/Projects/show.html',
+        controller: 'ProjectsCtrl'
       })
       .otherwise({
         redirectTo: '/'

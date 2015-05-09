@@ -1,0 +1,24 @@
+
+<div>
+  <h1>Ajouter un project : </h1><br>
+  <form ng-submit="addProject()">
+
+    <table>
+      <tr>
+        <td><label for="titre">Titre : </label></td>
+        <td><input type="text" id="titre" ng-model="project.title"></td>
+      </tr>
+      <tr>
+        <td><label for="des"> Description : </label></td>
+        <td><input type="text" id="des" ng-model="project.description"></td>
+      </tr>
+      <tr>
+        <td><label for="year">Année : </label></td>
+        <td><input type="text" id="year" ng-model="project.year"></td>
+      </tr>
+    </table>
+
+    <input type="submit" value="Ajouter"/>
+  </form>
+
+</div>

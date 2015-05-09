@@ -80,4 +80,28 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+
+  /*Modif Lucas*/
+
+  td {
+    padding: 4px;
+  }
+
+  input[type="submit"] {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  div#action {
+    position: absolute;
+  }
+
+  div#list {
+    margin-left: 375px;
+    padding-top: 1px;
+  }
 }
