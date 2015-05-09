@@ -1,0 +1,26 @@
+<div id="action">
+  <h1>Supprimer un utilisateur : </h1><br>
+  <form ng-submit="delUser()">
+
+    <table>
+      <tr>
+        <td><label for="id">Id :</label></td>
+        <td><input type="text" id="id" ng-model="user.id"></td>
+      </tr>
+    </table>
+
+
+    <input type="submit" value="Envoyer"/>
+  </form>
+
+</div>
+
+
+<div id="list">
+  <h1>Liste des utilisateurs</h1>
+  <ul>
+    <li ng-repeat="user in users"><a href="#/users/{{user.id}}">{{user.name}} {{user.surname}}</a>, ID : {{user.id}}
+    </li>
+  </ul>
+</div>
+

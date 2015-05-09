@@ -1,0 +1,24 @@
+<div id="action">
+  <h1>Supprimer un project : </h1><br>
+  <form ng-submit="delProject()">
+
+    <table>
+      <tr>
+        <td><label for="id">Id :</label></td>
+        <td><input type="text" id="id" ng-model="project.id"></td>
+      </tr>
+    </table>
+
+
+    <input type="submit" value="Supprimer"/>
+  </form>
+
+</div>
+
+<div id="list">
+  <h1>Liste des projects</h1>
+  <ul>
+    <li ng-repeat="project in projects"><a href="#/projects/{{project.id}}">{{project.title}}</a>, ID : {{project.id}}</li>
+    </li>
+  </ul>
+</div>
