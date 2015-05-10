@@ -38,18 +38,26 @@
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
-            <ul class="nav navbar-nav">
-              <li><a ng-href="#/users">Utilisateurs</a></li>
-              <li><a ng-href="#/addUser">Ajouter utilisateurs</a></li>
-              <li><a ng-href="#/preEditUser">Modifier utilisateurs</a></li>
-              <li><a ng-href="#/delUser">Supprimer utilisateurs</a></li>
-              <li><a ng-href="#/addProjectToUser">Ajouter un project à un utilisateur</a></li>
-              <li><a ng-href="#/projects">Projects</a></li>
-              <li><a ng-href="#/addProject">Ajouter projects</a></li>
-              <li><a ng-href="#/preEditProject">Modifier projects</a></li>
-              <li><a ng-href="#/delProject">Supprimer projects</a></li>
-              <li><a ng-href="#/addUserToProject">Ajouter un utilisateur à un project</a></li>
-            </ul>
+            <ul class="nav navbar-nav" id="menu-deroulant">
+              <li><a href="#"></a>Menu utilisateurs
+                <ul>
+                  <li><a ng-href="#/users">Utilisateurs</a></li>
+                  <li><a ng-href="#/addUser">Ajouter utilisateurs</a></li>
+                  <li><a ng-href="#/preEditUser">Modifier utilisateurs</a></li>
+                  <li><a ng-href="#/delUser">Supprimer utilisateurs</a></li>
+                  <li><a ng-href="#/addProjectToUser">Ajouter un project à un utilisateur</a></li>
+               </ul>
+              </li>
+              <li><a href="#"></a>Menu projects
+                <ul>
+                  <li><a ng-href="#/projects">Projects</a></li>
+                  <li><a ng-href="#/addProject">Ajouter projects</a></li>
+                  <li><a ng-href="#/preEditProject">Modifier projects</a></li>
+                  <li><a ng-href="#/delProject">Supprimer projects</a></li>
+                  <li><a ng-href="#/addUserToProject">Ajouter un utilisateur à un project</a></li>
+                </ul>
+              </li>
+              </ul>
           </div>
         </div>
       </div>
