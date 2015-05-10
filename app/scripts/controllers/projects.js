@@ -15,13 +15,6 @@ angular.module('pooIhmExemplesApp')
       'Karma'
     ];
 
-    $scope.project ={
-      id: null,
-      title : null,
-      description : null,
-      year : null
-    };
-
     $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Projects')
       .success(function(data) {
         $scope.projects = data.data;

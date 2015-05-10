@@ -15,15 +15,6 @@ angular.module('pooIhmExemplesApp')
       'Karma'
     ];
 
-    $scope.user ={
-      id: null,
-      name: null,
-      surname: null,
-      email: null,
-      website: null
-    };
-
-
     $scope.addUser=function()
     {
       $http.post('http://poo-ihm-2015-rest.herokuapp.com/api/Users',$scope.user)
