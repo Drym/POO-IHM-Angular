@@ -1,6 +1,7 @@
 <div>
   <h1>Liste des utilisateurs</h1>
+  <p>Recherche rapide: <input type="text" ng-model="find"></p>
   <ul>
-    <li ng-repeat="user in users"><a href="#/users/{{user.id}}">{{user.name}} {{user.surname}}</a>, ID : {{user.id}}</li>
+    <li ng-repeat="user in users | filter:find"><a href="#/users/{{user.id}}">{{user.name}} {{user.surname}}</a>, ID : {{user.id}}</li>
   </ul>
 </div>

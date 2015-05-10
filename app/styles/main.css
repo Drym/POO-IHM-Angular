@@ -103,5 +103,6 @@ body {
   div#list {
     margin-left: 375px;
     padding-top: 1px;
+    margin-bottom: 100px
   }
 }
