@@ -8,7 +8,7 @@
  * Controller of the pooIhmExemplesApp
  */
 angular.module('pooIhmExemplesApp')
-  .controller('UsersCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
+  .controller('UsersCtrl', ['$scope', '$http', '$routeParams', '$location', function ($scope, $http, $routeParams, $location) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -28,11 +28,15 @@ angular.module('pooIhmExemplesApp')
     {
       $http.post('http://poo-ihm-2015-rest.herokuapp.com/api/Users',$scope.user)
         .success(function (data) {
+          $location.path('/addUser/');
         });
     }
 
     $scope.delUser = function() {
-      $http.delete('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $scope.user.id);
+      $http.delete('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $scope.user.id)
+      .success(function (data) {
+        $location.path('/delUser/');
+      });
     }
 
     $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users')
@@ -71,6 +75,9 @@ angular.module('pooIhmExemplesApp')
       }
 
       $http.put('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $routeParams.userId, '{"id":'+ $routeParams.userId +',"name":'+ $scope.user.name +',"surname":'+ $scope.user.surname +',"email":'+ $scope.user.email +',"website":'+ $scope.user.website +',"createdAt":"","updatedAt":""}')
+        .success(function(data) {
+          $location.path('/users/'+ $routeParams.userId);
+        });
     }
 
 

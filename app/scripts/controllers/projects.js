@@ -8,7 +8,7 @@
  * Controller of the pooIhmExemplesApp
  */
 angular.module('pooIhmExemplesApp')
-  .controller('ProjectsCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
+  .controller('ProjectsCtrl', ['$scope', '$http', '$routeParams', '$location', function ($scope, $http, $routeParams, $location) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -30,10 +30,16 @@ angular.module('pooIhmExemplesApp')
 
     $scope.addProject = function() {
       $http.post('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/', $scope.project)
+        .success(function(data) {
+          $location.path('/addProject/');
+        });
     }
 
     $scope.delProject = function() {
-      $http.delete('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/' + $scope.project.id);
+      $http.delete('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/' + $scope.project.id)
+        .success(function(data) {
+          $location.path('/delProject/');
+        });
     }
 
     $scope.editProject = function() {
@@ -58,6 +64,9 @@ angular.module('pooIhmExemplesApp')
         $scope.project.year = '"' +  $scope.project.year + '"';
       }
       $http.put('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/' + $routeParams.projectId, '{"id":'+ $routeParams.projectId +',"title":'+  $scope.project.title +',"description":'+  $scope.project.description +',"year":'+  $scope.project.year +',"createdAt":"","updatedAt":""}')
+        .success(function(data) {
+          $location.path('/projects/' + $routeParams.projectId);
+        });
     }
 
 
