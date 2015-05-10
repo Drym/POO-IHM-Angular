@@ -59,6 +59,14 @@ angular
         templateUrl: 'views/Projects/preEditProject.html',
         controller: 'ProjectsCtrl'
       })
+      .when('/addUserToProject', {
+        templateUrl: 'views/Projects/addUserToProject.html',
+        controller: 'ProjectsCtrl'
+      })
+      .when('/addProjectToUser', {
+        templateUrl: 'views/Users/addProjectToUser.html',
+        controller: 'UsersCtrl'
+      })
       .when('/editProject/:projectId', {
         templateUrl: 'views/Projects/editProject.html',
         controller: 'ProjectsCtrl'

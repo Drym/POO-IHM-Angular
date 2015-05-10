@@ -1,0 +1,32 @@
+<div id="action">
+  <h1>Ajouter un project<br> à un utilisateur : </h1><br>
+  <form ng-submit="addProjectToUser()">
+
+    <table>
+      <tr>
+        <td><label for="idUser">ID utilisateur : </label></td>
+        <td><input type="text" id="idUser" ng-model="user.id"></td>
+      </tr>
+      <tr>
+        <td><label for="idProject">ID project : </label></td>
+        <td><input type="text" id="idProject" ng-model="project.id"></td>
+      </tr>
+    </table>
+
+    <input type="submit" value="Ajouter"/>
+  </form>
+
+</div>
+<div id="list">
+  <h1>Listes utilisateurs et projects</h1><br>
+  <p>Recherche utilisateur: <input type="text" ng-model="find"></p>
+  <p>Recherche project: <input type="text" ng-model="find2"></p>
+  <ul>
+    <h3>Utilisateurs :</h3>
+    <li ng-repeat="user in users | filter:find "><a href="#/users/{{user.id}}">{{user.name}} {{user.surname}}</a>, ID : {{user.id}}
+    </li>
+    <h3>Projects :</h3>
+    <li ng-repeat="project in projects | filter:find2 "><a href="#/projects/{{project.id}}">{{project.title}}</a>, ID : {{project.id}}</li>
+  </ul>
+</div>
+

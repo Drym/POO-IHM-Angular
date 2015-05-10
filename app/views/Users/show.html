@@ -5,6 +5,8 @@
   <p>Prénom: {{currentUser.surname}}</p>
   <p>Email: {{currentUser.email}}</p>
   <p>Site web: {{currentUser.website}}</p>
+  <p>Projects:</p>
+  <li ng-repeat="project in UserProjects"><a href="#/projects/{{project.id}}">{{project.title}}</a></li><br>
 
   <a href="#/editUser/{{currentUser.id}}">Modifier</a>
 

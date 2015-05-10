@@ -4,6 +4,9 @@
   <p>Titre: {{currentProject.title}}</p>
   <p>Description: {{currentProject.description}}</p>
   <p>Année: {{currentProject.year}}</p>
+  <p>Utilisateurs:</p>
+  <li ng-repeat="user in ProjectUsers"><a href="#/users/{{user.id}}">{{user.name}} {{user.surname}}</a></li><br>
+
 
   <a href="#/editProject/{{currentProject.id}}">Modifier</a>
 

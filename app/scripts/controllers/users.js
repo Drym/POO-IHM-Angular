@@ -47,36 +47,54 @@ angular.module('pooIhmExemplesApp')
 
     $scope.editUser = function() {
       if (!$scope.user.name) {
-          $scope.user.name = '"' + $scope.currentUser.name + '"';
+          $scope.user.name =  $scope.currentUser.name;
       }
       else {
-        $scope.user.name = '"' + $scope.user.name + '"';
+        $scope.user.name = $scope.user.name;
       }
 
       if (!$scope.user.surname) {
-          $scope.user.surname = '"' + $scope.currentUser.surname + '"';
+          $scope.user.surname = $scope.currentUser.surname;
       }
       else {
-        $scope.user.surname = '"' + $scope.user.surname + '"';
+        $scope.user.surname = $scope.user.surname;
       }
 
       if (!$scope.user.email) {
-          $scope.user.email = '"' + $scope.currentUser.email + '"';
+          $scope.user.email = $scope.currentUser.email;
       }
       else {
-        $scope.user.email = '"' + $scope.user.email + '"';
+        $scope.user.email = $scope.user.email;
       }
 
       if (!$scope.user.website) {
-          $scope.user.website = '"' +$scope.currentUser.website + '"';
+          $scope.user.website = $scope.currentUser.website;
       }
       else {
-        $scope.user.website = '"' +$scope.user.website + '"';
+        $scope.user.website = $scope.user.website;
       }
 
-      $http.put('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $routeParams.userId, '{"id":'+ $routeParams.userId +',"name":'+ $scope.user.name +',"surname":'+ $scope.user.surname +',"email":'+ $scope.user.email +',"website":'+ $scope.user.website +',"createdAt":"","updatedAt":""}')
+      $http.put('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $routeParams.userId, $scope.user)
         .success(function(data) {
           $location.path('/users/'+ $routeParams.userId);
+        });
+    }
+
+    $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $routeParams.userId + '/Projects')
+      .success(function(data) {
+        $scope.UserProjects = data.data;
+      });
+
+    //List project pour ajouter a un user
+    $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Projects')
+      .success(function(data) {
+        $scope.projects = data.data;
+      });
+
+    $scope.addProjectToUser = function() {
+      $http.put('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $scope.user.id + '/Projects/' + $scope.project.id)
+        .success(function(data) {
+          $location.path('/addUserToProject/');
         });
     }
 

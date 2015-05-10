@@ -27,6 +27,16 @@ angular.module('pooIhmExemplesApp')
         $scope.projects = data.data;
       });
 
+    //List user pour ajouter a un project
+    $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users')
+      .success(function(data) {
+        $scope.users = data.data;
+      });
+
+    $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/' + $routeParams.projectId + '/Users')
+      .success(function(data) {
+        $scope.ProjectUsers = data.data;
+      });
 
     $scope.addProject = function() {
       $http.post('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/', $scope.project)
@@ -44,28 +54,35 @@ angular.module('pooIhmExemplesApp')
 
     $scope.editProject = function() {
       if (!$scope.project.title) {
-        $scope.project.title = '"' + $scope.currentProject.title + '"';
+        $scope.project.title = $scope.currentProject.title;
       }
       else {
-        $scope.project.title = '"' +  $scope.project.title + '"';
+        $scope.project.title = $scope.project.title;
       }
 
       if (!$scope.project.description) {
-        $scope.project.description = '"' + $scope.currentProject.description + '"';
+        $scope.project.description = $scope.currentProject.description;
       }
       else {
-        $scope.project.description = '"' +  $scope.project.description + '"';
+        $scope.project.description = $scope.project.description;
       }
 
       if (!$scope.project.year) {
-        $scope.project.year = '"' + $scope.currentProject.year + '"';
+        $scope.project.year = $scope.currentProject.year;
       }
       else {
-        $scope.project.year = '"' +  $scope.project.year + '"';
+        $scope.project.year = $scope.project.year;
       }
-      $http.put('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/' + $routeParams.projectId, '{"id":'+ $routeParams.projectId +',"title":'+  $scope.project.title +',"description":'+  $scope.project.description +',"year":'+  $scope.project.year +',"createdAt":"","updatedAt":""}')
+      $http.put('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/' + $routeParams.projectId, $scope.project)
         .success(function(data) {
           $location.path('/projects/' + $routeParams.projectId);
+        });
+    }
+
+    $scope.addUserToProject = function() {
+      $http.put('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/' + $scope.project.id + '/Users/' + $scope.user.id)
+        .success(function(data) {
+          $location.path('/addUserToProject/');
         });
     }
 
