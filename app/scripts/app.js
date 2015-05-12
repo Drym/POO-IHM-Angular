@@ -63,8 +63,16 @@ angular
         templateUrl: 'views/Projects/addUserToProject.html',
         controller: 'ProjectsCtrl'
       })
+      .when('/delUserToProject', {
+        templateUrl: 'views/Projects/delUserToProject.html',
+        controller: 'ProjectsCtrl'
+      })
       .when('/addProjectToUser', {
         templateUrl: 'views/Users/addProjectToUser.html',
+        controller: 'UsersCtrl'
+      })
+      .when('/delProjectToUser', {
+        templateUrl: 'views/Users/delProjectToUser.html',
         controller: 'UsersCtrl'
       })
       .when('/editProject/:projectId', {

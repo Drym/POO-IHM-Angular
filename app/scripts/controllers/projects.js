@@ -79,6 +79,13 @@ angular.module('pooIhmExemplesApp')
         });
     }
 
+    $scope.delUserToProject = function() {
+      $http.delete('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/' + $scope.project.id + '/Users/' + $scope.user.id)
+        .success(function(data) {
+          $location.path('/delUserToProject/');
+        });
+    }
+
 
     if($routeParams.projectId) {
       $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/' + $routeParams.projectId)
