@@ -5,8 +5,13 @@
   <p>Description: {{currentProject.description}}</p>
   <p>Année: {{currentProject.year}}</p>
   <p>Utilisateurs:</p>
-  <li ng-repeat="user in ProjectUsers"><a href="#/users/{{user.id}}">{{user.name}} {{user.surname}}</a></li><br>
 
+  <div id="listProjet">
+    <li ng-repeat="user in ProjectUsers"><a href="#/users/{{user.id}}">{{user.name}} {{user.surname}}</a></li><br>
+  </div>
+  <div id="role">
+    <li ng-repeat="role in ProjectRoles">rôle : {{role.name}}</li>
+  </div><br>
 
   <a href="#/editProject/{{currentProject.id}}">Modifier</a>
 

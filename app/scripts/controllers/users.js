@@ -96,6 +96,10 @@ angular.module('pooIhmExemplesApp')
         });
     }
 
+    $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $routeParams.userId + '/Roles')
+      .success(function(data) {
+        $scope.UserRoles = data.data;
+      });
 
     if($routeParams.userId) {
       $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $routeParams.userId)

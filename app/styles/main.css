@@ -106,6 +106,15 @@ body {
     margin-bottom: 100px
   }
 
+  div#listProjet {
+    float: left;
+    padding-right: 20px;
+  }
+
+  div#role {
+    list-style: none;
+  }
+
   /* Menu */
   #menu-deroulant, #menu-deroulant ul {
     padding: 0;
@@ -151,5 +160,7 @@ body {
   #menu-deroulant ul li:first-child {
     margin-top: 10px;
   }
+
+
 
 }

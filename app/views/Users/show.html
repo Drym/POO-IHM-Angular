@@ -6,7 +6,13 @@
   <p>Email: {{currentUser.email}}</p>
   <p>Site web: {{currentUser.website}}</p>
   <p>Projects:</p>
-  <li ng-repeat="project in UserProjects"><a href="#/projects/{{project.id}}">{{project.title}}</a></li><br>
+
+  <div id="listProjet">
+    <li id="projet" ng-repeat="project in UserProjects"><a href="#/projects/{{project.id}}">{{project.title}}</a></li>
+  </div>
+  <div id="role">
+    <li ng-repeat="role in UserRoles">rôle : {{role.name}}</li>
+  </div><br>
 
   <a href="#/editUser/{{currentUser.id}}">Modifier</a>
 

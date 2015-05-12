@@ -31,6 +31,11 @@ angular.module('pooIhmExemplesApp')
         $scope.ProjectUsers = data.data;
       });
 
+    $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/' + $routeParams.projectId + '/Roles')
+      .success(function(data) {
+        $scope.ProjectRoles = data.data;
+      });
+
     $scope.addProject = function() {
       $http.post('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/', $scope.project)
         .success(function(data) {
