@@ -1,11 +1,19 @@
 <div>
-  <h1>Détail d'un utilisateur</h1>
-  <p>ID: {{currentUser.id}}</p>
-  <p>Nom: {{currentUser.name}}</p>
-  <p>Prénom: {{currentUser.surname}}</p>
-  <p>Email: {{currentUser.email}}</p>
-  <p>Site web: {{currentUser.website}}</p>
-  <p>Projets:</p>
+  <div id="description">
+    <h1>Détail d'un utilisateur</h1>
+    <p>ID: {{currentUser.id}}</p>
+    <p>Nom: {{currentUser.name}}</p>
+    <p>Prénom: {{currentUser.surname}}</p>
+    <p>Email: {{currentUser.email}}</p>
+    <p>Site web: {{currentUser.website}}</p>
+    <p>Projets:</p>
+  </div>
+
+  <div id="showLink">
+    <a href="#/editUser/{{currentUser.id}}">Modifier utilisateur</a><br>
+    <a color="red" href="#/users/" ng-click="delUserFast()">  <font color="red">Supprimer utilisateur</font></a><br>
+    <a href="#/addProjectToUserFast/{{currentUser.id}}">Ajouter un projet</a>
+  </div>
 
   <div id="listProjet">
     <li id="projet" ng-repeat="project in UserProjects"><a href="#/projects/{{project.id}}">{{project.title}}</a><br>
@@ -13,11 +21,7 @@
     </li><br>
   </div>
   <div id="role">
-    <li ng-repeat="role in UserRoles">rôle : {{role.name}}<br><br></li>
-  </div><br>
-
-  <a href="#/editUser/{{currentUser.id}}">Modifier utilisateur</a><br>
-  <a color="red" href="#/users/" ng-click="delUserFast()">  <font color="red">Supprimer utilisateur</font></a><br>
-  <a href="#/addProjectToUserFast/{{currentUser.id}}">Ajouter un projet</a>
-
+    <!-- filtre évite les roles null-->
+    <li ng-repeat="role in UserRoles |filter: '!'+null">rôle : {{role.name}}<br><br></li>
+  </div>
 </div>

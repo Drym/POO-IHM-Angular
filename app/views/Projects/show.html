@@ -1,23 +1,27 @@
 <div>
+<div id="description">
   <h1>Détail d'un projet</h1>
   <p>ID: {{currentProject.id}}</p>
   <p>Titre: {{currentProject.title}}</p>
   <p>Description: {{currentProject.description}}</p>
   <p>Année: {{currentProject.year}}</p>
   <p>Utilisateurs:</p>
+</div>
+
+  <div id="showLink">
+    <a href="#/editProject/{{currentProject.id}}">Modifier projet</a><br>
+    <a color="red" href="#/users/" ng-click="delProjectFast()">  <font color="red">Supprimer projet</font></a><br>
+    <a href="#/addUserToProjectFast/{{currentProject.id}}">Ajouter un utulisateur</a>
+  </div>
 
   <div id="listProjet">
-    <li ng-repeat="user in ProjectUsers"><a href="#/users/{{user.id}}">{{user.name}} {{user.surname}}</a><br>
+    <li  id="projet" ng-repeat="user in ProjectUsers"><a href="#/users/{{user.id}}">{{user.name}} {{user.surname}}</a><br>
       <a color="red" href="#" ng-click="delUserToProjectFast(user.id)">  <font color="red">Supprimer</font></a>
     </li><br>
   </div>
   <div id="role">
-    <li ng-repeat="role in ProjectRoles">rôle : {{role.name}}<br><br></li>
-  </div><br>
-
-  <a href="#/editProject/{{currentProject.id}}">Modifier projet</a><br>
-  <a color="red" href="#/users/" ng-click="delProjectFast()">  <font color="red">Supprimer projet</font></a><br>
-  <a href="#/addUserToProjectFast/{{currentProject.id}}">Ajouter un utulisateur</a>
-
+    <!-- filtre évite les roles null-->
+    <li ng-repeat="role in ProjectRoles |filter: '!'+null">rôle : {{role.name}}<br><br></li>
+  </div>
 </div>
 

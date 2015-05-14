@@ -1,6 +1,6 @@
 <div>
   <h1>Modifier un utilisateur</h1>
-  <p>Pour modifier un utilisateur, cliquez sur son nom, puis cliquez sur modifier</p>
+  <p><i>Pour modifier un utilisateur, cliquez sur son nom, puis cliquez sur modifier.</i></p>
   <p>Recherche rapide: <input type="text" ng-model="find"></p>
   <ul>
     <li ng-repeat="user in users | filter:find"><a href="#/users/{{user.id}}">{{user.name}} {{user.surname}}</a></li>

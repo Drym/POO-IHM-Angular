@@ -111,8 +111,18 @@ body {
     padding-right: 20px;
   }
 
+  div#description {
+    width: 500px;
+  }
+
   div#role {
     list-style: none;
+  }
+
+  div#showLink {
+    position: absolute;
+    top: 184px;
+    padding-left: 450px;
   }
 
   /* Menu */
