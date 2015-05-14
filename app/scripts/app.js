@@ -39,6 +39,10 @@ angular
         templateUrl: 'views/Users/editUser.html',
         controller: 'UsersCtrl'
       })
+      .when('/addProjectToUserFast/:userId', {
+        templateUrl: 'views/Users/addProjectToUserFast.html',
+        controller: 'UsersCtrl'
+      })
       .when('/delUser', {
         templateUrl: 'views/Users/delUser.html',
         controller: 'UsersCtrl'

@@ -1,0 +1,11 @@
+<div>
+  <h1>Ajouter un projet à un utilisateur : </h1>
+  <h1>Liste des projets :</h1><br>
+  <p>Recherche rapide: <input type="text" ng-model="find"></p>
+  <ul>
+    <h3>Projets :</h3>
+    <li ng-repeat="project in projects | filter:find "><a href="#/projects/{{project.id}}">{{project.title}}</a>
+      <a href ng-click="addProjectToUserFast(project.id)">Ajouter le projet</a><br>
+    </li>
+  </ul>
+</div>
