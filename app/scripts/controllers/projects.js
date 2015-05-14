@@ -49,6 +49,14 @@ angular.module('pooIhmExemplesApp')
         });
     }
 
+    //Supprimer un projet (dans show)
+    $scope.delProjectFast = function() {
+      $http.delete('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/' + $scope.currentProject.id)
+        .success(function (data) {
+          $location.path('/projects/');
+        });
+    }
+
     //Modifier un projet
     $scope.editProject = function() {
       if (!$scope.project.title) {

@@ -13,7 +13,8 @@
     <li ng-repeat="role in ProjectRoles">rôle : {{role.name}}</li>
   </div><br>
 
-  <a href="#/editProject/{{currentProject.id}}">Modifier</a>
+  <a href="#/editProject/{{currentProject.id}}">Modifier</a><br>
+  <a color="red" href="#/users/" ng-click="delProjectFast()">  <font color="red"> Supprimer</font></a>
 
 </div>
 

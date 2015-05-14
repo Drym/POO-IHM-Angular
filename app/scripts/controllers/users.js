@@ -32,6 +32,14 @@ angular.module('pooIhmExemplesApp')
       });
     }
 
+    //Supprimer un utilisateur (dans show)
+    $scope.delUserFast = function() {
+      $http.delete('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $scope.currentUser.id)
+        .success(function (data) {
+          $location.path('/users/');
+        });
+    }
+
     //Récupérer tout les utilisateurs
     $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users')
       .success(function(data) {
