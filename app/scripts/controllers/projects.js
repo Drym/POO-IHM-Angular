@@ -93,6 +93,14 @@ angular.module('pooIhmExemplesApp')
         });
     }
 
+    //Ajouter un utilisateur a un projet (dans show)
+    $scope.addUserToProjectFast = function(id) {
+      $http.put('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/' + $scope.currentProject.id + '/Users/' + id)
+        .success(function(data) {
+          $location.path('/projects/'+ $scope.currentProject.id );
+        });
+    }
+
     //Supprimer l'association d'un utilisateur à un projet
     $scope.delUserToProject = function() {
       $http.delete('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/' + $scope.project.id + '/Users/' + $scope.user.id)

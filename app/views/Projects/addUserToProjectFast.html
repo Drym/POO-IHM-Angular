@@ -1,0 +1,10 @@
+<div>
+  <h1>Ajouter un utlisateur à un projet : </h1>
+  <h1>Liste des utlisateurs :</h1><br>
+  <p>Recherche rapide: <input type="text" ng-model="find"></p>
+  <ul>
+    <li ng-repeat="user in users | filter:find "><a href="#/users/{{user.id}}">{{user.name}} {{user.surname}}</a> -
+      <a href ng-click="addUserToProjectFast(user.id)">Ajouter l'utilisateur</a><br>
+    </li>
+  </ul>
+</div>
