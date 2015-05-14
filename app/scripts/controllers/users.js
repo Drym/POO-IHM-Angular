@@ -106,10 +106,18 @@ angular.module('pooIhmExemplesApp')
     }
 
     //Supprimer l'association d'un projet a un utilisateur
-    $scope.delProjectToUser = function() {
+    $scope.delProjectToUser = function(id) {
       $http.delete('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $scope.user.id + '/Projects/' + $scope.project.id)
         .success(function(data) {
           $location.path('/delUserToProject/');
+        });
+    }
+
+    //Supprimer l'association d'un projet a un utilisateur (dans show)
+    $scope.delProjectToUserFast = function(id) {
+      $http.delete('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' +  $scope.currentUser.id + '/Projects/' + id)
+        .success(function(data) {
+          $location.path('/users/'+ $scope.currentUser.id );
         });
     }
 

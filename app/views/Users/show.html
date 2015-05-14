@@ -8,13 +8,15 @@
   <p>Projets:</p>
 
   <div id="listProjet">
-    <li id="projet" ng-repeat="project in UserProjects"><a href="#/projects/{{project.id}}">{{project.title}}</a></li>
+    <li id="projet" ng-repeat="project in UserProjects"><a href="#/projects/{{project.id}}">{{project.title}}</a><br>
+      <a color="red" href="#" ng-click="delProjectToUserFast(project.id)">  <font color="red">Supprimer</font></a>
+    </li><br>
   </div>
   <div id="role">
-    <li ng-repeat="role in UserRoles">rôle : {{role.name}}</li>
+    <li ng-repeat="role in UserRoles">rôle : {{role.name}}<br><br></li>
   </div><br>
 
-  <a href="#/editUser/{{currentUser.id}}">Modifier</a><br>
-  <a color="red" href="#/users/" ng-click="delUserFast()">  <font color="red"> Supprimer</font></a>
+  <a href="#/editUser/{{currentUser.id}}">Modifier utilisateur</a><br>
+  <a color="red" href="#/users/" ng-click="delUserFast()">  <font color="red">Supprimer utilisateur</font></a>
 
 </div>
