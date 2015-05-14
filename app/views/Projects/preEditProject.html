@@ -1,6 +1,6 @@
 <div>
-  <h1>Modifier un project</h1>
-  <p>Pour modifier un project, cliquez sur son titre, puis cliquez sur modifier</p>
+  <h1>Modifier un projet</h1>
+  <p>Pour modifier un projet, cliquez sur son titre, puis cliquez sur modifier</p>
   <p>Recherche rapide: <input type="text" ng-model="find"></p>
   <ul>
     <li ng-repeat="project in projects  | filter:find "><a href="#/projects/{{project.id}}">{{project.title}}</a></li>

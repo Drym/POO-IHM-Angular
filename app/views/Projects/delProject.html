@@ -1,5 +1,5 @@
 <div id="action">
-  <h1>Supprimer un project : </h1><br>
+  <h1>Supprimer un projet : </h1><br>
   <form ng-submit="delProject()">
 
     <table>
@@ -16,7 +16,7 @@
 </div>
 
 <div id="list">
-  <h1>Liste des projects</h1>
+  <h1>Liste des projets</h1>
   <p>Recherche rapide: <input type="text" ng-model="find"></p>
   <ul>
     <li ng-repeat="project in projects | filter:find "><a href="#/projects/{{project.id}}">{{project.title}}</a>, ID : {{project.id}}</li>

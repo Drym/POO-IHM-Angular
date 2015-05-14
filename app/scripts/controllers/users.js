@@ -15,6 +15,7 @@ angular.module('pooIhmExemplesApp')
       'Karma'
     ];
 
+    //Ajouter un utilisateur
     $scope.addUser=function()
     {
       $http.post('http://poo-ihm-2015-rest.herokuapp.com/api/Users',$scope.user)
@@ -23,6 +24,7 @@ angular.module('pooIhmExemplesApp')
         });
     }
 
+    //Supprimer un utilisateur
     $scope.delUser = function() {
       $http.delete('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $scope.user.id)
       .success(function (data) {
@@ -30,16 +32,19 @@ angular.module('pooIhmExemplesApp')
       });
     }
 
+    //Récupérer tout les utilisateurs
     $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users')
       .success(function(data) {
         $scope.users = data.data;
       });
 
-
+    //Modifier un utilisateur
     $scope.editUser = function() {
+      //Si le nom n'est pas modifier, on garde l'ancien
       if (!$scope.user.name) {
           $scope.user.name =  $scope.currentUser.name;
       }
+      //Sinon on prend le nouveau
       else {
         $scope.user.name = $scope.user.name;
       }
@@ -65,23 +70,26 @@ angular.module('pooIhmExemplesApp')
         $scope.user.website = $scope.user.website;
       }
 
+      //On envoit la modification
       $http.put('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $routeParams.userId, $scope.user)
         .success(function(data) {
           $location.path('/users/'+ $routeParams.userId);
         });
     }
 
+    //Récupérer tout les projets d'un utilisateur
     $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $routeParams.userId + '/Projects')
       .success(function(data) {
         $scope.UserProjects = data.data;
       });
 
-    //List project pour ajouter a un user
+    //Récupérer la Liste des projets pour ajouter à un utilisateur
     $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Projects')
       .success(function(data) {
         $scope.projects = data.data;
       });
 
+    //Ajouter un projet a un utilisateur
     $scope.addProjectToUser = function() {
       $http.put('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $scope.user.id + '/Projects/' + $scope.project.id)
         .success(function(data) {
@@ -89,6 +97,7 @@ angular.module('pooIhmExemplesApp')
         });
     }
 
+    //Supprimer l'association d'un projet a un utilisateur
     $scope.delProjectToUser = function() {
       $http.delete('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $scope.user.id + '/Projects/' + $scope.project.id)
         .success(function(data) {
@@ -96,10 +105,12 @@ angular.module('pooIhmExemplesApp')
         });
     }
 
+    //Récupérer tout les roles d'un utilisateur
     $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $routeParams.userId + '/Roles')
       .success(function(data) {
         $scope.UserRoles = data.data;
       });
+
 
     if($routeParams.userId) {
       $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $routeParams.userId)
