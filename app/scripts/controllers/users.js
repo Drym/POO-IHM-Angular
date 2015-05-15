@@ -138,10 +138,17 @@ angular.module('pooIhmExemplesApp')
     //Ajouter un role a un user sur un projet
     $scope.addRoleToUser = function() {
       $scope.role.UserId = $routeParams.userId;
-      $http.post('http://poo-ihm-2015-rest.herokuapp.com/api/Roles/', $scope.role)
+      //Evite la duplication du projet, supprime l'association qui sera recréé juste apres avec le post du role
+      $http.delete('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $routeParams.userId + '/Projects/' + $scope.role.ProjectId)
         .success(function(data) {
-          $location.path('/users/'+$scope.currentUser.id);
+          $http.post('http://poo-ihm-2015-rest.herokuapp.com/api/Roles/', $scope.role)
+            .success(function(data) {
+              $location.path('/users/'+$scope.currentUser.id);
+
+            });
+
         });
+
     }
 
     //Permet l'utilisation de currentUser
