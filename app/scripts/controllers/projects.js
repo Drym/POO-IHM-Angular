@@ -123,6 +123,7 @@ angular.module('pooIhmExemplesApp')
         $scope.users = data.data;
       });
 
+    //Permet l'utilisation de currentProject
     if($routeParams.projectId) {
       $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/' + $routeParams.projectId)
         .success(function(data) {

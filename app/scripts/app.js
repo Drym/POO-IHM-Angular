@@ -99,6 +99,10 @@ angular
         templateUrl: 'views/Projects/show.html',
         controller: 'ProjectsCtrl'
       })
+      .when('/addRoleToUser/:userId' , {
+        templateUrl: '../views/Users/addRoleToUser.html',
+        controller: 'UsersCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

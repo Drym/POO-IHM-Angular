@@ -135,7 +135,16 @@ angular.module('pooIhmExemplesApp')
           $scope.UserRoles = data.data;
       });
 
+    //Ajouter un role a un user sur un projet
+    $scope.addRoleToUser = function() {
+      $scope.role.UserId = $routeParams.userId;
+      $http.post('http://poo-ihm-2015-rest.herokuapp.com/api/Roles/', $scope.role)
+        .success(function(data) {
+          $location.path('/users/'+$scope.currentUser.id);
+        });
+    }
 
+    //Permet l'utilisation de currentUser
     if($routeParams.userId) {
       $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $routeParams.userId)
       .success(function(data) {
